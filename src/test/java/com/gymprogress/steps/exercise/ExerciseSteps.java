@@ -1,4 +1,4 @@
-package com.gymprogress.steps;
+package com.gymprogress.steps.exercise;
 
 import com.gymprogress.controllers.ExerciseController;
 import com.gymprogress.domain.Exercise;
@@ -7,8 +7,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -17,11 +15,9 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class ExerciseSteps {
 
-    @Rule
-    public ExpectedException exceptions = ExpectedException.none();
-
     @Autowired
     private ExerciseController exerciseController;
+
 
     private Exercise exercise;
     private User user;
@@ -45,6 +41,6 @@ public class ExerciseSteps {
     @Then("^exercise with id (\\d+) is stored$")
     public void exerciseWithIdIsStored(Long exerciseId) {
         Exercise storedExercise = exerciseController.getExercise(exerciseId);
-        assertEquals(storedExercise, exercise);
+        assertEquals(exercise, storedExercise);
     }
 }
