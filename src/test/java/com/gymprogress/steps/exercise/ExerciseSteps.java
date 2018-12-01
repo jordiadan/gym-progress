@@ -18,7 +18,6 @@ public class ExerciseSteps {
     @Autowired
     private ExerciseController exerciseController;
 
-
     private Exercise exercise;
     private User user;
 
